@@ -37,8 +37,8 @@ A fast, responsive movie & TV discovery website. Browse, filter, watch trailers 
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/Sa3ed-031/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/Sa3ed-031/zmovie.git
+cd zmovie
 npm install
 cp .env.example .env   # then add your TMDB API key (see below)
 npm run dev
