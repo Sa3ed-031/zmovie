@@ -1,16 +1,16 @@
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 
-import { STRINGS } from "../../constants/strings";
-import { getMediaKey } from "../../utils/media";
 import MovieCard from "./MovieCard";
 import SkeletonCard from "./SkeletonCard";
+import { getMediaKey } from "../../utils/media";
+import { STRINGS } from "../../constants/strings";
 
-// Shared grid: skeletons while loading, a friendly message when empty
 const MovieGrid = ({
   items = [],
   loading = false,
   skeletonCount = 10,
   emptyMessage = STRINGS.common.noResults,
+  inSearchPage = false,
 }) => {
   if (!loading && items.length === 0) {
     return (
@@ -25,12 +25,20 @@ const MovieGrid = ({
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+    <div
+      className={`${
+        inSearchPage
+          ? "lg:grid-cols-4 md:grid-cols-3"
+          : "lg:grid-cols-5 md:grid-cols-4"
+      } sm:grid-cols-3 sm:gap-4 min-[450px]:grid-cols-2 grid grid-cols-1 gap-3`}
+    >
       {loading
         ? Array.from({ length: skeletonCount }).map((_, i) => (
             <SkeletonCard key={i} />
           ))
-        : items.map((item) => <MovieCard key={getMediaKey(item)} movie={item} />)}
+        : items.map((item) => (
+            <MovieCard key={getMediaKey(item)} movie={item} />
+          ))}
     </div>
   );
 };

@@ -1,7 +1,6 @@
-// Movies and TV shows use different field names in TMDB, these helpers hide that.
-
 export const getMediaType = (item) =>
-  item?.media_type ?? (item?.title === undefined && item?.name ? "tv" : "movie");
+  item?.media_type ??
+  (item?.title === undefined && item?.name ? "tv" : "movie");
 
 export const getTitle = (item) => item?.title ?? item?.name ?? "";
 

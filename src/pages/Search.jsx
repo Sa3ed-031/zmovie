@@ -23,8 +23,6 @@ const EMPTY_FILTERS = {
   sort: "default",
 };
 
-// TMDB's search endpoint can't filter by genre/rating/language,
-// so while searching, filters & sorting are applied to the current page.
 const applyFilters = (items, filters) =>
   items.filter(
     (item) =>
@@ -58,7 +56,6 @@ export default function Search() {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [showFilters, setShowFilters] = useState(false);
 
-  // New search → back to the first page
   const [prevQuery, setPrevQuery] = useState(query);
   if (query !== prevQuery) {
     setPrevQuery(query);
@@ -69,12 +66,10 @@ export default function Search() {
     Promise.all([fetchGenres("movie"), fetchGenres("tv")]),
   );
   const [movieGenres = [], tvGenres = []] = genreLists || [];
-  // Search returns movies & TV shows, Discover returns movies only
   const genres = isSearch ? mergeGenres(movieGenres, tvGenres) : movieGenres;
 
   const { data, loading, error, refetch } = useFetch(
     () => (isSearch ? searchMulti(query, page) : discoverMovies(filters, page)),
-    // Discover filters on the server, so it refetches when filters change
     [query, page, isSearch ? "" : JSON.stringify(filters)],
   );
 
@@ -118,7 +113,9 @@ export default function Search() {
   const sortOptions = [
     {
       value: "default",
-      label: isSearch ? text.sortOptions.relevance : text.sortOptions.popularity,
+      label: isSearch
+        ? text.sortOptions.relevance
+        : text.sortOptions.popularity,
     },
     { value: "rating", label: text.sortOptions.rating },
     { value: "newest", label: text.sortOptions.newest },
@@ -210,6 +207,7 @@ export default function Search() {
             items={visible}
             loading={loading}
             emptyMessage={text.empty}
+            inSearchPage
           />
         )}
 

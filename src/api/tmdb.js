@@ -34,8 +34,9 @@ const getList = async (url, params) => {
 };
 
 export const findTrailer = (videos = []) =>
-  videos.find((video) => video.site === "YouTube" && video.type === "Trailer") ??
-  null;
+  videos.find(
+    (video) => video.site === "YouTube" && video.type === "Trailer",
+  ) ?? null;
 
 // ############ 3. Common #############
 export const fetchPopularByType = (page = 1, type) =>

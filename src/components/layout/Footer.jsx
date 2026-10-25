@@ -5,7 +5,11 @@ import Logo from "./Logo";
 import { LINKS, STRINGS } from "../../constants/strings";
 
 const footerLinks = [
-  { title: STRINGS.footer.builtBy, href: LINKS.portfolio, Icon: CodeOutlinedIcon },
+  {
+    title: STRINGS.footer.builtBy,
+    href: LINKS.portfolio,
+    Icon: CodeOutlinedIcon,
+  },
   { title: STRINGS.footer.github, href: LINKS.github, Icon: GitHubIcon },
 ];
 
@@ -32,7 +36,9 @@ export default function Footer() {
         <a href={LINKS.tmdb} target="_blank" rel="noopener noreferrer">
           <img src="/tmdb-logo.svg" alt="TMDB" className="h-4 w-auto" />
         </a>
-        <p className="text-xs text-gray-400">{STRINGS.footer.tmdbAttribution}</p>
+        <p className="text-xs text-gray-400">
+          {STRINGS.footer.tmdbAttribution}
+        </p>
       </div>
 
       <p className="text-xs">

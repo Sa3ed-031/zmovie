@@ -1,15 +1,13 @@
-import { useState } from "react";
 import Dialog from "@mui/material/Dialog";
 import CloseIcon from "@mui/icons-material/Close";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { useState } from "react";
 
 import { STRINGS } from "../../constants/strings";
 
 // trailer: a TMDB video object ({ key, site: "YouTube", ... }) or null
 const TrailerButton = ({ trailer, title }) => {
   const [open, setOpen] = useState(false);
-
-  // No trailer → no button
   if (!trailer) return null;
 
   return (
@@ -28,7 +26,9 @@ const TrailerButton = ({ trailer, title }) => {
         onClose={() => setOpen(false)}
         maxWidth="lg"
         fullWidth
-        slotProps={{ paper: { sx: { bgcolor: "#000", m: 2, width: "calc(100% - 32px)" } } }}
+        slotProps={{
+          paper: { sx: { bgcolor: "#000", m: 2, width: "calc(100% - 32px)" } },
+        }}
       >
         <button
           type="button"

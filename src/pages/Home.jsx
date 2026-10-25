@@ -20,8 +20,6 @@ export default function Home() {
   );
 
   const trending = data?.results || [];
-
-  // Newest movie in theaters with a backdrop, otherwise the top trending title
   const newRelease = nowPlaying?.results?.find((movie) => movie.backdrop_path);
   const heroMovie =
     newRelease ?? trending.find((item) => item.backdrop_path) ?? null;

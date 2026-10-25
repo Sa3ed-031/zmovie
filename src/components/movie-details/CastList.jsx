@@ -11,7 +11,6 @@ const CastList = ({ cast = [] }) => {
       <h2 className="text-2xl font-semibold text-on-surface">
         {STRINGS.details.cast}
       </h2>
-      {/* Scrolls inside the row only, never the page */}
       <ul className="flex gap-4 overflow-x-auto pb-2 snap-x">
         {cast.map((person) => (
           <li

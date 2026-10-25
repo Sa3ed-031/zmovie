@@ -37,7 +37,6 @@ const FilterSelect = ({ Icon, label, value, onChange, options }) => (
   </label>
 );
 
-// filters: { genres: number[], year, minRating, language }
 const Aside = ({ filters, genres = [], onChange, className = "" }) => {
   const toggleGenre = (id) =>
     onChange({

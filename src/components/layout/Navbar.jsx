@@ -66,15 +66,17 @@ export default function Navbar() {
         <LinksList />
       </nav>
 
-      {/* Search is always reachable on small screens */}
       {renderSearchForm("lg:hidden w-full")}
     </header>
   );
 
-  // A render function (not a component), so the input keeps focus while typing
   function renderSearchForm(className) {
     return (
-      <form role="search" className={`relative ${className}`} onSubmit={handleSearch}>
+      <form
+        role="search"
+        className={`relative ${className}`}
+        onSubmit={handleSearch}
+      >
         <SearchIcon
           className="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none"
           sx={{ fontSize: "1.25rem" }}

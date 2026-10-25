@@ -15,7 +15,11 @@ import PaginationButtons from "../components/common/PaginationButtons";
 
 const labels = STRINGS.tv.tabs;
 const tabs = [
-  { key: "airing_today", label: labels.airing_today, fetch: fetchAiringTodayTv },
+  {
+    key: "airing_today",
+    label: labels.airing_today,
+    fetch: fetchAiringTodayTv,
+  },
   { key: "on_the_air", label: labels.on_the_air, fetch: fetchOnTheAirTv },
   { key: "popular", label: labels.popular, fetch: fetchPopularByType },
   { key: "top_rated", label: labels.top_rated, fetch: fetchTopRatedByType },
@@ -33,7 +37,6 @@ export default function TvShows() {
     page,
   ]);
 
-  // These endpoints don't send media_type, so tell the cards they're TV shows
   const shows = (data?.results || []).map((show) => ({
     ...show,
     media_type: "tv",

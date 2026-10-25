@@ -21,7 +21,6 @@ function Layout() {
   const { showNavbar, setShowNavbar } = useShowNavbar();
   const { pathname } = useLocation();
 
-  // Start every new page from the top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);

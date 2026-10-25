@@ -3,7 +3,11 @@ import SignalWifiStatusbarConnectedNoInternet4Icon from "@mui/icons-material/Sig
 
 import { STRINGS } from "../../constants/strings";
 
-const ErrorMessage = ({ message, onRetry, hint = STRINGS.common.errorHint }) => {
+const ErrorMessage = ({
+  message,
+  onRetry,
+  hint = STRINGS.common.errorHint,
+}) => {
   return (
     <div className="py-12 text-center flex flex-col items-center gap-4">
       <div className="text-6xl">

@@ -11,7 +11,6 @@ const AddToWatchlistBtn = ({ movie, compact = false }) => {
   if (!movie) return null;
 
   const handleToggle = (e) => {
-    // The button is often inside a card <Link>
     e.preventDefault();
     e.stopPropagation();
     inList ? removeFromWatchlist(movie) : addToWatchlist(movie);

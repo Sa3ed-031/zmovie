@@ -43,7 +43,6 @@ function MovieDetails({ mediaType = "movie" }) {
     return <ErrorMessage message={STRINGS.details.notFound} hint={null} />;
   }
 
-  // Make sure cards & the watchlist know this is a TV show or a movie
   const movie = { ...details, media_type: mediaType };
   const title = getTitle(movie);
   const trailer = findTrailer(movie.videos?.results);
