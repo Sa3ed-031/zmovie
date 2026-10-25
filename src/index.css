@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* The site is always dark (dark: variants follow the `dark` class on <html>, not the OS setting) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-surface: #16171d;
+    --color-surface-container: #201f20;
+    --color-primary-container: #e50914;
+    --color-on-surface-variant: #e9bcb6;
+    --color-on-surface: #e5e2e3;
+
+    --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+    /* One font for the whole site (Latin + Arabic). Loaded in index.html */
+    --font-sans: "Cairo", ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@layer base {
+    :root {
+        color-scheme: dark;
+        font-size: 18px;
+        line-height: 1.45;
+        letter-spacing: 0.18px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        @media (max-width: 1024px) {
+            font-size: 16px;
+        }
+    }
+
+    body {
+        overflow-x: hidden;
+        font-family: var(--font-sans);
+        color: #9ca3af;
+        background-color: var(--color-surface);
+    }
+
+    /* Form controls don't inherit the font by default */
+    button,
+    input,
+    select,
+    textarea {
+        font-family: inherit;
+    }
+
+    h1,
+    h2 {
+        font-weight: 500;
+    }
+
+    h1 {
+        letter-spacing: -1.68px;
+    }
+
+    h2 {
+        line-height: 118%;
+        letter-spacing: -0.24px;
+    }
+}
+
+#root .logo-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
